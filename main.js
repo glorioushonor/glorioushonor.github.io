@@ -743,38 +743,15 @@ async function main() {
         viewMatrix = JSON.parse(decodeURIComponent(location.hash.slice(1)));
         carousel = false;
     } catch (err) {}
-    // const url = new URL(
-    //     // "nike.splat",
-    //     // location.href,
-    //     params.get("url") || "train.splat",
-    //     "https://huggingface.co/cakewalk/splat-data/resolve/main/",
-    // );
-    // const req = await fetch(url, {
-    //     mode: "cors", // no-cors, *cors, same-origin
-    //     credentials: "omit", // include, *same-origin, omit
-    // });
-    // 假设你有一个本地的 .splat 文件路径
-    // 创建一个文件输入元素
-    const fileInput = document.createElement('input');
-    fileInput.type = 'file';
-    fileInput.accept = '.splat';
-    fileInput.onchange = (event) => {
-    const file = event.target.files[0];
-    const reader = new FileReader();
-    reader.onload = (e) => {
-        const arrayBuffer = e.target.result;
-        // 将文件内容传递给 worker
-        worker.postMessage({ ply: arrayBuffer, save: false });
-    };
-    reader.readAsArrayBuffer(file);
-};
-fileInput.click();
-    fetch(localFilePath)
-    .then(response => response.arrayBuffer())
-    .then(arrayBuffer => {
-        const uint8Array = new Uint8Array(arrayBuffer);
-        // 调用 selectFile 函数处理文件
-        selectFile(new Blob([uint8Array], { type: 'application/octet-stream' }));
+    const url = new URL(
+        // "nike.splat",
+        // location.href,
+        params.get("url") || "train.splat",
+        "https://huggingface.co/cakewalk/splat-data/resolve/main/",
+    );
+    const req = await fetch(url, {
+        mode: "cors", // no-cors, *cors, same-origin
+        credentials: "omit", // include, *same-origin, omit
     });
     console.log(req);
     if (req.status != 200)
