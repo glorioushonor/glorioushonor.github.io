@@ -743,11 +743,19 @@ async function main() {
         viewMatrix = JSON.parse(decodeURIComponent(location.hash.slice(1)));
         carousel = false;
     } catch (err) {}
+    // const url = new URL(
+    //     // "nike.splat",
+    //     // location.href,
+    //     params.get("url") || "train.splat",
+    //     "https://huggingface.co/cakewalk/splat-data/resolve/main/",
+    // );
     const url = new URL(
         // "nike.splat",
         // location.href,
-        params.get("url") || "train.splat",
-        "https://huggingface.co/cakewalk/splat-data/resolve/main/",
+        //params.get("url") || "train.splat",
+        params.get("url") || "output.splat",
+        //"https://huggingface.co/cakewalk/splat-data/resolve/main/",
+        "https://huggingface.co/datasets/waterwood/splat/resolve/main/",
     );
     const req = await fetch(url, {
         mode: "cors", // no-cors, *cors, same-origin
