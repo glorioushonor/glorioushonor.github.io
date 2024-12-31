@@ -750,12 +750,10 @@ async function main() {
     //     "https://huggingface.co/cakewalk/splat-data/resolve/main/",
     // );
     const url = new URL(
-        // "nike.splat",
-        // location.href,
-        //params.get("url") || "train.splat",
-        params.get("url") || "output.splat",
-        //"https://huggingface.co/cakewalk/splat-data/resolve/main/",
-        "https://huggingface.co/datasets/waterwood/splat/resolve/main/",
+        // params.get("url") || "output.splat",
+        // "https://huggingface.co/datasets/waterwood/splat/resolve/main/",
+        params.get("url") || "exhibition.splat",
+        "https://splat-1334183525.cos.ap-beijing.myqcloud.com/",
     );
     const req = await fetch(url, {
         mode: "cors", // no-cors, *cors, same-origin
